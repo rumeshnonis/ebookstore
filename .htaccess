@@ -5,4 +5,12 @@ RewriteRule ^confirm_email$ confirm_email.php [L]
 RewriteRule ^password_reset$ views/auth/password_reset.php [L]
 RewriteRule ^reset_password$ views/auth/reset_password.php [L]
 
+RewriteRule ^admin/dashboard$ controllers/AdminController.php?action=dashboard [L]
+RewriteRule ^admin/manage_products$ controllers/AdminController.php?action=manage_products [L]
+RewriteRule ^admin/add_product$ controllers/AdminController.php?action=add_product [L]
+RewriteRule ^admin/edit_product$ controllers/AdminController.php?action=edit_product [L]
+RewriteRule ^admin/delete_product$ controllers/AdminController.php?action=delete_product [L]
+RewriteRule ^admin/manage_orders$ controllers/AdminController.php?action=manage_orders [L]
+RewriteRule ^admin/manage_users$ controllers/AdminController.php?action=manage_users [L]
+
 

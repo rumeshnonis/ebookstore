@@ -33,7 +33,7 @@
         </div>
         <?php endif; ?>
         <form
-          action="../../controllers/AuthController.php?action=login"
+          action="/ebookstore/controllers/AuthController.php?action=login"
           method="POST"
         >
           <div class="form-group">
