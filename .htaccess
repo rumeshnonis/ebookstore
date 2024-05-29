@@ -1,4 +1,10 @@
 RewriteEngine On
+RewriteBase /ebookstore/
+
+# Redirect all requests to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /ebookstore/index.php [L]
 
 RewriteRule ^/$ views/index.php [L]
 

@@ -16,6 +16,9 @@ require_once 'controllers/ProductController.php';
 // Get the request URI
 $request_uri = $_SERVER['REQUEST_URI'];
 
+// Debugging output
+echo "<!-- Request URI: $request_uri -->";
+
 // Route the request to the appropriate controller
 switch ($request_uri) {
     case '/ebookstore/':
@@ -29,6 +32,10 @@ switch ($request_uri) {
     case '/ebookstore/register':
         $authController = new AuthController();
         $authController->register();
+        break;
+    case '/ebookstore/shop':
+    case '/ebookstore/shop/':
+        include 'views/shop.php';
         break;
     // Add more routes as needed
     default:
