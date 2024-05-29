@@ -1,4 +1,7 @@
 RewriteEngine On
+
+RewriteRule ^/$ views/index.php [L]
+
 RewriteRule ^register$ views/auth/register.php [L]
 RewriteRule ^login$ views/auth/login.php [L]
 RewriteRule ^confirm_email$ confirm_email.php [L]

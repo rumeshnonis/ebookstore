@@ -1,0 +1,22 @@
+.nav-link {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+}
+
+.bg-primary{
+    background-color: #07BE64 !important;
+}
+
+.btn-primary{
+    background-color: #07BE64 !important;
+}
+
+.text-primary{
+    color: #07BE64 !important;
+}
+
+.text-body-primary{
+    color: #07BE64 !important;
+}
+
+.card-hover-shadow:hover{box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19)}

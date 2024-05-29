@@ -8,9 +8,9 @@ error_reporting(E_ALL);
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../vendor/autoload.php'; // Path to Composer autoload file
+require 'vendor/autoload.php'; // Path to Composer autoload file
 
-include_once '../models/User.php';
+include_once 'models/User.php';
 
 class AuthController {
     public function register() {

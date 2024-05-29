@@ -1,13 +1,20 @@
 <?php
 // models/User.php
 
-include_once '../config/database.php';
+// include_once '../config/database.php';
 
 class User {
     private $conn;
 
     public function __construct() {
         $this->conn = Database::getConnection();
+    }
+
+    public function updateProfile($user_id, $username, $email) {
+        $sql = "UPDATE users SET username = ?, email = ? WHERE id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("ssi", $username, $email, $user_id);
+        return $stmt->execute();
     }
 
     public function register($username, $email, $password, $role) {

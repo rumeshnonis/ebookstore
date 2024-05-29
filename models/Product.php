@@ -1,17 +1,17 @@
 <?php
 // models/Product.php
 
-include_once '../config/database.php';
+// include_once '../config/database.php';
 
 class Product {
     private $conn;
+    private $table = 'products';
 
     public function __construct() {
         $this->conn = Database::getConnection();
         if ($this->conn->connect_error) {
             die("Connection failed: " . $this->conn->connect_error);
         }
-        // echo "Database connection established in Product model.<br>";
     }
 
     public function getAllProducts() {
@@ -23,7 +23,6 @@ class Product {
             return [];
         }
 
-        // echo "Products fetched successfully in Product model.<br>";
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
@@ -56,5 +55,22 @@ class Product {
         $stmt->bind_param("i", $id);
         return $stmt->execute();
     }
+
+    public function getFeaturedProducts() {
+        $query = 'SELECT * FROM ' . $this->table . ' WHERE is_featured = 1 LIMIT 6';
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getLatestProducts() {
+        $query = 'SELECT * FROM ' . $this->table . ' ORDER BY created_at DESC LIMIT 6';
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    
 }
 ?>
